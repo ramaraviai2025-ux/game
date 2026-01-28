@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games Library by Rishubh Raj</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px 20px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 3.5em;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            font-size: 1.4em;
+            color: #666;
+            font-weight: 300;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .game-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .game-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            color: white;
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .football-icon::before {
+            content: '⚽';
+            font-size: 2.5em;
+        }
+
+        .game-card h3 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .game-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .play-button {
+            display: block;
+            width: 100%;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .play-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.6);
+            color: white;
+            text-decoration: none;
+        }
+
+        .coming-soon {
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-align: center;
+            cursor: not-allowed;
+            opacity: 0.8;
+        }
+
+        .features {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .features li {
+            padding: 8px 0;
+            color: #555;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4ecdc4;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .games-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="pulse">Games Library</h1>
+            <p class="subtitle">by Rishubh Raj</p>
+        </header>
+
+        <div class="games-grid">
+            <div class="game-card">
+                <div class="game-icon football-icon"></div>
+                <h3>Football Game</h3>
+                <p class="game-description">Experience thrilling football action! Score goals, avoid the goalkeeper, and become the champion in this exciting MIT App Inventor creation.</p>
+                <ul class="features">
+                    <li>Realistic football physics</li>
+                    <li>Score tracking system</li>
+                    <li>Smooth controls</li>
+                    <li>Mobile optimized</li>
+                </ul>
+                <a href="https://ai2.appinventor.mit.edu/b/4qw9q" target="_blank" class="play-button">🚀 Play Football Game</a>
+            </div>
+
+            <div class="game-card">
+                <div class="game-icon" style="background: linear-gradient(135deg, #f093fb, #f5576c);">🎮</div>
+                <h3>Space Shooter</h3>
+                <p class="game-description">Blast through galaxies and defeat alien invaders in this classic arcade-style shooter. Coming soon to the library!</p>
+                <a class="coming-soon">Coming Soon</a>
+            </div>
+
+            <div class="game-card">
+                <div class="game-icon" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">🏁</div>
+                <h3>Racing Challenge</h3>
+                <p class="game-description">High-speed racing action awaits! Race against time and opponents on challenging tracks. Under development.</p>
+                <a class="coming-soon">Coming Soon</a>
+            </div>
+
+            <div class="game-card">
+                <div class="game-icon" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">🧩</div>
+                <h3>Puzzle Master</h3>
+                <p class="game-description">Test your brain with increasingly difficult puzzles. Perfect for sharpening your problem-solving skills!</p>
+                <a class="coming-soon">Coming Soon</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Games Library by Rishubh Raj. Made with ❤️ for gaming enthusiasts.</p>
+        </footer>
+    </div>
+</body>
+</html>
